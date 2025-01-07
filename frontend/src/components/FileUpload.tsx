@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-// import { api } from '../services/api';
+import { api } from '../services/api';
 
 export const FileUpload = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -17,13 +17,16 @@ export const FileUpload = () => {
     try {
       const formData = new FormData();
       formData.append('file', file);
-      // const response = await api.uploadFile(file);
+      const response = await api.uploadFile(file);
       
-      setProgress(100);
-      alert('Upload successful!');
-      
-      setFile(null);
-      setProgress(0);
+      if (response && response.status === 200) { // Check for successful upload
+        setProgress(100);
+        alert('Upload successful!');
+        setFile(null);
+        setProgress(0);
+      } else {
+        alert('Upload failed. Please try again.');
+      }
     } catch (err) {
       setError('Upload failed. Please try again.');
       console.error('Upload error:', err);
