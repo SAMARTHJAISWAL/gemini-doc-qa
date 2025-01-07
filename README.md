@@ -10,7 +10,7 @@ A web application for uploading documents (XLSX/CSV) and asking AI-powered quest
 
 ## Features
 
-- Document upload with drag-and-drop
+- Document upload with drag and drop
 - AI-powered question answering
 - Document management
 - Interactive Q&A interface
