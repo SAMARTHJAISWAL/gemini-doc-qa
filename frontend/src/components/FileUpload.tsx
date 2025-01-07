@@ -19,11 +19,14 @@ export const FileUpload = () => {
       formData.append('file', file);
       const response = await api.uploadFile(file);
       
-      setProgress(100);
-      alert('Upload successful!');
-      
-      setFile(null);
-      setProgress(0);
+      if (response && response.status === 200) {
+        setProgress(100);
+        alert('Upload successful!');
+        setFile(null);
+        setProgress(0);
+      } else {
+        alert('Upload failed. Please try again.');
+      }
     } catch (err) {
       setError('Upload failed. Please try again.');
       console.error('Upload error:', err);
@@ -86,7 +89,7 @@ export const FileUpload = () => {
           <div className="w-full bg-gray-200 rounded-full h-2">
             <div
               className="bg-blue-500 rounded-full h-2 transition-all duration-300"
-              style={{ width: `${progress}%` }}
+              style={{ width: ${progress}% }}
             />
           </div>
         </div>
