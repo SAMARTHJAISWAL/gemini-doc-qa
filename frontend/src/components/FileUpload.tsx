@@ -19,7 +19,7 @@ export const FileUpload = () => {
       formData.append('file', file);
       const response = await api.uploadFile(file);
       
-      if (response && response.status === 200) { // Check for successful upload
+      if (response && response.status === 200) {
         setProgress(100);
         alert('Upload successful!');
         setFile(null);
