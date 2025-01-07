@@ -3,19 +3,19 @@ import sys
 
 def test_upload():
     try:
-        health_response = requests.get('http://localhost:8000/health')
+        health_response = requests.get('https://gemini-doc-qa.onrender.com/health')
         print("Server health check:", health_response.json())
 
-        url = 'http://localhost:8000/upload'
+        url = 'https://gemini-doc-qa.onrender.com/upload'
         files = {'file': open('test.csv', 'rb')}
         response = requests.post(url, files=files)
         print("Upload Response:", response.json())
 
-        docs_response = requests.get('http://localhost:8000/documents')
+        docs_response = requests.get('https://gemini-doc-qa.onrender.com/documents')
         print("Documents list:", docs_response.json())
 
     except requests.exceptions.ConnectionError:
-        print("Error: Could not connect to server. Make sure server is running on http://localhost:8000")
+        print("Error: Could not connect to server. Make sure server is running on https://gemini-doc-qa.onrender.com")
     except FileNotFoundError:
         print("Error: test.csv not found in current directory")
     except Exception as e:

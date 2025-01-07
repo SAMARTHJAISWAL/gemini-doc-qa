@@ -3,7 +3,7 @@ import json
 from typing import Dict, Any
 
 class APITester:
-    def __init__(self, base_url: str = "http://localhost:8000"):
+    def __init__(self, base_url: str = "https://gemini-doc-qa.onrender.com"):
         self.base_url = base_url
 
     def test_health(self) -> Dict[str, Any]:

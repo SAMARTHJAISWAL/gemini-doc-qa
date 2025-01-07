@@ -2,7 +2,7 @@ import requests
 import json
 
 def test_query(question):
-    url = "http://localhost:8000/ask"
+    url = "https://gemini-doc-qa.onrender.com/ask"
     params = {
         "document_name": "complex_test.csv",
         "question": question

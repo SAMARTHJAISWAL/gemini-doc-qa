@@ -1,7 +1,7 @@
 import requests
 
 def upload_file():
-    url = 'http://localhost:8000/upload'
+    url = 'https://gemini-doc-qa.onrender.com/upload'
     files = {'file': open('complex_test.csv', 'rb')}
     
     try:
