@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { FileUpload } from '../FileUpload';
 import { DocumentList } from '../DocumentList';
-import { Plus, FileText, Settings, X } from 'lucide-react';
+import { Plus, Settings } from 'lucide-react';
 
 interface SidebarProps {
   selectedDocument: string | null;
