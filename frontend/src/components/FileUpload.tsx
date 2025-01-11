@@ -19,14 +19,14 @@ export const FileUpload = ({ onComplete }: { onComplete: () => void }) => {
       const formData = new FormData();
       formData.append("file", file);
       const response = await api.uploadFile(file);
-
+      
       if (response && response.status === 200) {
         setProgress(100);
-        setTimeout(() => {
-          onComplete();
-        }, 1000);
+        alert('Upload successful!');
+        setFile(null);
+        setProgress(0);
       } else {
-        setError(response?.status || "Upload failed. Please try again.");
+        alert('Upload failed. Please try again.');
       }
     } catch (err) {
       setError("Upload failed. Please try again.");
